@@ -106,6 +106,7 @@ void IntelBluetoothFirmware::publishReg(bool isSucceed, const char *fwName)
     m_pDevice->setProperty("FirmwareLoaded", isSucceed);
     if (isSucceed) {
         setProperty("fw_name", OSString::withCString(fwName));
+        m_pDevice->setProperty("idVendor", (unsigned long long)0x0A5C, (sizeof(UInt16) * 8));
     }
 }
 
